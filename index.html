@@ -71,7 +71,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--sel-line); 
 .layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 360px); gap: 16px; align-items: start; }
 
 .map-wrap { position: relative; background: var(--sea); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
-#map { display: block; width: 100%; height: auto; max-height: calc(100vh - 120px); max-height: calc(100dvh - 120px); touch-action: manipulation; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; }
+#map { display: block; width: 100%; height: auto; max-height: max(360px, calc(100vh - 120px)); max-height: max(360px, calc(100dvh - 120px)); touch-action: manipulation; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; }
 
 /* map layers */
 .sea { fill: var(--sea); }
@@ -490,7 +490,7 @@ function buildMap() {
   for (const id of BASE) h += `<path class="reg" data-id="${id}" style="--h:${META[id].h}" d="${reg[id].d}"/>`;
   for (const id of CITY) h += `<path class="mini" d="${reg[id].d}"/>`;
   for (const id of CITY) h += `<circle class="reg city" data-id="${id}" style="--h:${META[id].h}" cx="${reg[id].c[0]}" cy="${reg[id].c[1]}" r="11"/>`;
-  h += '</g><g class="labels">';
+  h += '</g><g class="labels" aria-hidden="true">';
   for (const id of ALL) {
     const m = META[id];
     let [x, y] = reg[id].lp, anchor = m.anchor || 'middle';

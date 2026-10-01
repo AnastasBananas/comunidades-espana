@@ -1,0 +1,15 @@
+{
+  "name": "comunidades-espana-tools",
+  "private": true,
+  "description": "Regenerates map-data.js (projected SVG paths of Spain's autonomous communities).",
+  "scripts": {
+    "build-map": "node build-map.mjs"
+  },
+  "dependencies": {
+    "d3-geo": "3.1.1",
+    "es-atlas": "0.6.0",
+    "polylabel": "2.1.0",
+    "topojson-client": "3.1.0",
+    "world-atlas": "2.0.2"
+  }
+}
